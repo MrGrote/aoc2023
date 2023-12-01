@@ -1,23 +1,20 @@
 import java.io.File
 
-class Example {
-    static void main(String[] args) {
-        int total = 0
-        new File("input.txt").eachLine {
-            line ->
-                String first
-                String last
-                line.each {
-                    c -> 
-                        if(Character.isDigit(c as char)) {
-                            if (first === null) {
-                                first = c
-                            }
-                            last = c
-                        }
-                }
-                total += Integer.parseInt(first + last)
+def lineToNumber(line) {
+    def first
+    def last
+    line.each {
+        if (Character.isDigit(it as char)) {
+            if (first === null) { first = it }
+            last = it
         }
-        println total
-   }
+    }
+    (first + last) as int
 }
+
+def solve(lines) {
+    lines.sum { lineToNumber(it) }
+}
+
+lines = new File("input.txt").readLines()
+println "${solve lines}"
