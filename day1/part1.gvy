@@ -1,5 +1,3 @@
-import java.io.File
-
 def lineToNumber(line) {
     def first
     def last
