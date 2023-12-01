@@ -17,13 +17,13 @@ def lineToNumber(line) {
             String parsed
 
             if(i+3 <= line.length() && wordToIntMap.containsKey(line[i..<i+3])) {
-                parsed = wordToIntMap[line[i..i+2]]
+                parsed = wordToIntMap[line[i..<i+3]]
             }
             else if(i+4 <= line.length() && wordToIntMap.containsKey(line[i..<i+4])) {
-                parsed = wordToIntMap[line[i..i+3]]
+                parsed = wordToIntMap[line[i..<i+4]]
             }
             else if(i+5 <= line.length() && wordToIntMap.containsKey(line[i..<i+5])) {
-                parsed = wordToIntMap[line[i..i+4]]
+                parsed = wordToIntMap[line[i..<i+5]]
             }
             if (parsed !== null) {
                 if (first === null) { first = parsed }
